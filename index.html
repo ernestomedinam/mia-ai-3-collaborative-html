@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Browse a modern French fashion collection featuring clothing, knitwear, outerwear, shoes, and accessories. Filter products by category and size.">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="Maison Étoile">
+  <title>Catalog | Maison Étoile</title>
+
+  <!-- Tailwind CSS only: precompiled stylesheet, no JavaScript. -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: #f8f7f4;
+      color: #171717;
+    }
+
+    .product-image {
+      aspect-ratio: 4 / 5;
+    }
+  </style>
+</head>
+<body class="min-h-screen font-sans antialiased">
+  <a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-black focus:text-white focus:rounded-md">
+    Skip to main content
+  </a>
+
+  <header class="bg-white border-b border-gray-200 sticky top-0 z-40">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="py-5 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-5">
+        <a href="#" class="inline-flex items-center text-2xl font-semibold tracking-widest uppercase" aria-label="Maison Étoile home">
+          Maison Étoile
+        </a>
+
+        <nav aria-label="Primary navigation">
+          <ul class="flex flex-wrap items-center gap-x-5 gap-y-3 text-sm font-medium text-gray-700">
+            <li><a href="#" class="hover:text-black focus:outline-none focus:underline">Home</a></li>
+            <li><a href="#catalog" class="text-black border-b-2 border-black pb-1" aria-current="page">Catalog</a></li>
+            <li><a href="#" class="hover:text-black focus:outline-none focus:underline">Product view</a></li>
+            <li><a href="#" class="hover:text-black focus:outline-none focus:underline">Cart</a></li>
+            <li><a href="#" class="hover:text-black focus:outline-none focus:underline">Payment form</a></li>
+            <li>
+              <a href="#" class="inline-flex items-center px-4 py-2 border border-gray-900 rounded-full text-gray-900 hover:bg-gray-900 hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900">
+                Back to Home
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <section id="catalog" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-14" aria-labelledby="catalog-heading">
+      <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-8">
+        <div>
+          <p class="text-xs font-semibold tracking-widest uppercase text-gray-500 mb-2">Spring / Summer Collection</p>
+          <h1 id="catalog-heading" class="text-3xl sm:text-4xl font-semibold tracking-tight">The Catalog</h1>
+          <p class="mt-3 text-gray-600 max-w-2xl">Explore refined wardrobe essentials designed with a modern Parisian sensibility.</p>
+        </div>
+        <p class="text-sm text-gray-500" aria-label="20 products shown">20 products</p>
+      </div>
+
+      <form class="bg-white border border-gray-200 rounded-2xl p-5 sm:p-6 mb-10" action="#catalog" method="get" aria-label="Catalog filters">
+        <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-5">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 flex-1">
+            <div>
+              <label for="category" class="block text-sm font-medium text-gray-800 mb-2">Filter by category</label>
+              <select id="category" name="category" class="w-full bg-white border border-gray-300 rounded-lg px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-gray-900 focus:border-gray-900">
+                <option value="all">All categories</option>
+                <option value="tops">Tops</option>
+                <option value="knitwear">Knitwear</option>
+                <option value="outerwear">Outerwear</option>
+                <option value="bottoms">Bottoms</option>
+                <option value="dresses">Dresses</option>
+                <option value="shoes">Shoes</option>
+                <option value="accessories">Accessories</option>
+              </select>
+            </div>
+
+            <div>
+              <label for="size" class="block text-sm font-medium text-gray-800 mb-2">Filter by size</label>
+              <select id="size" name="size" class="w-full bg-white border border-gray-300 rounded-lg px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-gray-900 focus:border-gray-900">
+                <option value="all">All sizes</option>
+                <option value="xs">XS</option>
+                <option value="s">S</option>
+                <option value="m">M</option>
+                <option value="l">L</option>
+                <option value="xl">XL</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="flex flex-col sm:flex-row gap-3">
+            <button type="submit" class="px-6 py-3 bg-gray-900 text-white text-sm font-medium rounded-lg hover:bg-black transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900">
+              Apply filters
+            </button>
+            <a href="#catalog" class="px-6 py-3 border border-gray-300 text-gray-800 text-sm font-medium text-center rounded-lg hover:border-gray-900 transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900">
+              Clear
+            </a>
+          </div>
+        </div>
+      </form>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-6 gap-y-10" aria-label="Product list">
+        <article class="group">
+          <a href="#" class="block" aria-label="View Essential Cotton T-Shirt">
+            <div class="product-image overflow-hidden rounded-xl bg-gray-200">
+              <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=800&q=80" alt="White essential cotton T-shirt" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500" loading="eager">
+            </div>
+            <div class="pt-4">
+              <p class="text-xs tracking-widest uppercase text-gray-500">Tops</p>
+              <div class="mt-1 flex items-start justify-between gap-4">
+                <h2 class="text-base font-medium">Essential Cotton T-Shirt</h2>
+                <p class="text-sm font-semibold whitespace-nowrap">€65</p>
+              </div>
+              <p class="mt-1 text-sm text-gray-500">Ivory</p>
+            </div>
+          </a>
+        </article>
+
+        <article class="group">
+          <a href="#" class="block" aria-label="View Relaxed Linen Shirt">
+            <div class="product-image overflow-hidden rounded-xl bg-gray-200">
+              <img src="https://images.unsplash.com/photo-1596755094514-f87e34085b2c?auto=format&fit=crop&w=800&q=80" alt="Relaxed light linen shirt" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500" loading="lazy">
+            </div>
+            <div class="pt-4">
+              <p class="text-xs tracking-widest uppercase text-gray-500">Tops</p>
+              <div class="mt-1 flex items-start justify-between gap-4">
+                <h2 class="text-base font-medium">Relaxed Linen Shirt</h2>
+                <p class="text-sm font-semibold whitespace-nowrap">€110</p>
+              </div>
+              <p class="mt-1 text-sm text-gray-500">Soft Blue</p>
+            </div>
+          </a>
+        </article>
+
+        <article class="group">
+          <a href="#" class="block" aria-label="View Paris Ribbed Cardigan">
+            <div class="product-image overflow-hidden rounded-xl bg-gray-200">
+              <img src="https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?auto=format&fit=crop&w=800&q=80" alt="Neutral ribbed cardigan" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500" loading="lazy">
+            </div>
+            <div class="pt-4">
+              <p class="text-xs tracking-widest uppercase text-gray-500">Knitwear</p>
+              <div class="mt-1 flex items-start justify-between gap-4">
+                <h2 class="text-base font-medium">Paris Ribbed Cardigan</h2>
+                <p class="text-sm font-semibold whitespace-nowrap">€145</p>
+              </div>
+              <p class="mt-1 text-sm text-gray-500">Oatmeal</p>
+            </div>
+          </a>
+        </article>
+
+        <article class="group">
+          <a href="#" class="block" aria-label="View Structured City Blazer">
+            <div class="product-image overflow-hidden rounded-xl bg-gray-200">
+              <img src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?auto=format&fit=crop&w=800&q=80" alt="Structured dark city blazer" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500" loading="lazy">
+            </div>
+            <div class="pt-4">
+              <p class="text-xs tracking-widest uppercase text-gray-500">Outerwear</p>
+              <div class="mt-1 flex items-start justify-between gap-4">
+                <h2 class="text-base font-medium">Structured City Blazer</h2>
+                <p class="text-sm font-semibold whitespace-nowrap">€220</p>
+              </div>
+              <p class="mt-1 text-sm text-gray-500">Midnight</p>
+            </div>
+          </a>
+        </article>
+
+        <article class="group">
+          <a href="#" class="block" aria-label="View Cropped Trench Jacket">
+            <div class="product-image overflow-hidden rounded-xl bg-gray-200">
+              <img src="https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?auto=format&fit=crop&w=800&q=80" alt="Cropped beige trench jacket" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500" loading="lazy">
+            </div>
+            <div class="pt-4">
+              <p class="text-xs tracking-widest uppercase text-gray-500">Outerwear</p>
+              <div class="mt-1 flex items-start justify-between gap-4">
+                <h2 class="text-base font-medium">Cropped Trench Jacket</h2>
+                <p class="text-sm font-semibold whitespace-nowrap">€195</p>
+              </div>
+              <p class="mt-1 text-sm text-gray-500">Sand</p>
+            </div>
+          </a>
+        </article>
+
+        <article class="group">
+          <a href="#" class="block" aria-label="View Pleated Midi Skirt">
+            <div class="product-image overflow-hidden rounded-xl bg-gray-200">
+              <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDAgMTAwMCIgcm9sZT0iaW1nIiBhcmlhLWxhYmVsbGVkYnk9InRpdGxlIGRlc2MiPgogIDx0aXRsZSBpZD0idGl0bGUiPkJsYWNrIHBsZWF0ZWQgbWlkaSBza2lydDwvdGl0bGU+CiAgPGRlc2MgaWQ9ImRlc2MiPkEgcmVmaW5lZCBmYXNoaW9uIGlsbHVzdHJhdGlvbiBvZiBhIGJsYWNrIHBsZWF0ZWQgbWlkaSBza2lydCBvbiBhIHdhcm0gbmV1dHJhbCBiYWNrZ3JvdW5kLjwvZGVzYz4KICA8ZGVmcz4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iYmciIHgxPSIwIiB5MT0iMCIgeDI9IjAiIHkyPSIxIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjZWVlOWUxIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iI2Q4ZDBjNSIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0ic2tpcnQiIHgxPSIwIiB5MT0iMCIgeDI9IjEiIHkyPSIxIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjMjUyNTI1Ii8+CiAgICAgIDxzdG9wIG9mZnNldD0iMC41IiBzdG9wLWNvbG9yPSIjMDcwNzA3Ii8+CiAgICAgIDxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iIzMwMzAzMCIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICAgIDxmaWx0ZXIgaWQ9InNoYWRvdyIgeD0iLTMwJSIgeT0iLTMwJSIgd2lkdGg9IjE2MCUiIGhlaWdodD0iMTgwJSI+CiAgICAgIDxmZUdhdXNzaWFuQmx1ciBpbj0iU291cmNlQWxwaGEiIHN0ZERldmlhdGlvbj0iMTgiLz4KICAgICAgPGZlT2Zmc2V0IGR5PSIyMiIvPgogICAgICA8ZmVDb21wb25lbnRUcmFuc2Zlcj48ZmVGdW5jQSB0eXBlPSJsaW5lYXIiIHNsb3BlPSIuMjIiLz48L2ZlQ29tcG9uZW50VHJhbnNmZXI+CiAgICAgIDxmZU1lcmdlPjxmZU1lcmdlTm9kZS8+PGZlTWVyZ2VOb2RlIGluPSJTb3VyY2VHcmFwaGljIi8+PC9mZU1lcmdlPgogICAgPC9maWx0ZXI+CiAgPC9kZWZzPgogIDxyZWN0IHdpZHRoPSI4MDAiIGhlaWdodD0iMTAwMCIgZmlsbD0idXJsKCNiZykiLz4KICA8ZWxsaXBzZSBjeD0iNDAwIiBjeT0iODgwIiByeD0iMjQ1IiByeT0iNDIiIGZpbGw9IiM2ZjY3NWUiIG9wYWNpdHk9Ii4xOCIvPgogIDxnIGZpbHRlcj0idXJsKCNzaGFkb3cpIj4KICAgIDxwYXRoIGQ9Ik0yODYgMjMyaDIyOGwxNiA5MEgyNzB6IiBmaWxsPSIjMTExIi8+CiAgICA8cGF0aCBkPSJNMjcwIDMxNmMtMTQgMTcyLTQ5IDMzNy0xMTUgNTA0IDE0NSA3NiAzNDUgNzYgNDkwIDAtNjYtMTY3LTEwMS0zMzItMTE1LTUwNHoiIGZpbGw9InVybCgjc2tpcnQpIi8+CiAgICA8cGF0aCBkPSJNNDAwIDMyMHY1NDIiIHN0cm9rZT0iIzVmNWY1ZiIgc3Ryb2tlLXdpZHRoPSIzIiBvcGFjaXR5PSIuNzIiLz4KICAgIDxwYXRoIGQ9Ik0zMzIgMzIwYy0xNCAxODAtMzggMzUwLTcyIDUxMCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjNjc2NzY3IiBzdHJva2Utd2lkdGg9IjQiIG9wYWNpdHk9Ii41NSIvPgogICAgPHBhdGggZD0iTTQ2OCAzMjBjMTQgMTgwIDM4IDM1MCA3MiA1MTAiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzY3Njc2NyIgc3Ryb2tlLXdpZHRoPSI0IiBvcGFjaXR5PSIuNTUiLz4KICAgIDxwYXRoIGQ9Ik0zMDQgMzIwYy0yNCAxODUtNjAgMzUyLTEwOCA0OTMiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzNjM2MzYyIgc3Ryb2tlLXdpZHRoPSI1IiBvcGFjaXR5PSIuNzIiLz4KICAgIDxwYXRoIGQ9Ik00OTYgMzIwYzI0IDE4NSA2MCAzNTIgMTA4IDQ5MyIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjM2MzYzNjIiBzdHJva2Utd2lkdGg9IjUiIG9wYWNpdHk9Ii43MiIvPgogICAgPHBhdGggZD0iTTM2NiAzMjBjLTcgMTkwLTE4IDM2OS0zMiA1MzYiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzc3NyIgc3Ryb2tlLXdpZHRoPSIzIiBvcGFjaXR5PSIuNDUiLz4KICAgIDxwYXRoIGQ9Ik00MzQgMzIwYzcgMTkwIDE4IDM2OSAzMiA1MzYiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzc3NyIgc3Ryb2tlLXdpZHRoPSIzIiBvcGFjaXR5PSIuNDUiLz4KICAgIDxyZWN0IHg9IjI3MiIgeT0iMjkyIiB3aWR0aD0iMjU2IiBoZWlnaHQ9IjM2IiByeD0iOCIgZmlsbD0iIzE3MTcxNyIvPgogIDwvZz4KICA8dGV4dCB4PSI0MDAiIHk9IjkzMCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjI2IiBsZXR0ZXItc3BhY2luZz0iNyIgZmlsbD0iIzU1NGY0OCI+UExFQVRFRCBNSURJPC90ZXh0Pgo8L3N2Zz4=" alt="Flowing pleated midi skirt" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500" loading="lazy">
+            </div>
+            <div class="pt-4">
+              <p class="text-xs tracking-widest uppercase text-gray-500">Bottoms</p>
+              <div class="mt-1 flex items-start justify-between gap-4">
+                <h2 class="text-base font-medium">Pleated Midi Skirt</h2>
+                <p class="text-sm font-semibold whitespace-nowrap">€135</p>
+              </div>
+              <p class="mt-1 text-sm text-gray-500">Black</p>
+            </div>
+          </a>
+        </article>
+
+        <article class="group">
+          <a href="#" class="block" aria-label="View Tailored Wide-Leg Trousers">
+            <div class="product-image overflow-hidden rounded-xl bg-gray-200">
+              <img src="https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?auto=format&fit=crop&w=800&q=80" alt="Tailored wide-leg trousers" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500" loading="lazy">
+            </div>
+            <div class="pt-4">
+              <p class="text-xs tracking-widest uppercase text-gray-500">Bottoms</p>
+              <div class="mt-1 flex items-start justify-between gap-4">
+                <h2 class="text-base font-medium">Tailored Wide-Leg Trousers</h2>
+                <p class="text-sm font-semibold whitespace-nowrap">€150</p>
+              </div>
+              <p class="mt-1 text-sm text-gray-500">Charcoal</p>
+            </div>
+          </a>
+        </article>
+
+        <article class="group">
+          <a href="#" class="block" aria-label="View Straight-Leg Selvedge Jeans">
+            <div class="product-image overflow-hidden rounded-xl bg-gray-200">
+              <img src="https://images.unsplash.com/photo-1541099649105-f69ad21f3246?auto=format&fit=crop&w=800&q=80" alt="Dark straight-leg jeans" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500" loading="lazy">
+            </div>
+            <div class="pt-4">
+              <p class="text-xs tracking-widest uppercase text-gray-500">Bottoms</p>
+              <div class="mt-1 flex items-start justify-between gap-4">
+                <h2 class="text-base font-medium">Straight-Leg Selvedge Jeans</h2>
+                <p class="text-sm font-semibold whitespace-nowrap">€125</p>
+              </div>
+              <p class="mt-1 text-sm text-gray-500">Indigo</p>
+            </div>
+          </a>
+        </article>
+
+        <article class="group">
+          <a href="#" class="block" aria-label="View Satin Slip Dress">
+            <div class="product-image overflow-hidden rounded-xl bg-gray-200">
+              <img src="https://images.unsplash.com/photo-1566174053879-31528523f8ae?auto=format&fit=crop&w=800&q=80" alt="Elegant satin slip dress" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500" loading="lazy">
+            </div>
+            <div class="pt-4">
+              <p class="text-xs tracking-widest uppercase text-gray-500">Dresses</p>
+              <div class="mt-1 flex items-start justify-between gap-4">
+                <h2 class="text-base font-medium">Satin Slip Dress</h2>
+                <p class="text-sm font-semibold whitespace-nowrap">€175</p>
+              </div>
+              <p class="mt-1 text-sm text-gray-500">Bordeaux</p>
+            </div>
+          </a>
+        </article>
+
+        <article class="group">
+          <a href="#" class="block" aria-label="View Belted Shirt Dress">
+            <div class="product-image overflow-hidden rounded-xl bg-gray-200">
+              <img src="https://images.unsplash.com/photo-1595777457583-95e059d581b8?auto=format&fit=crop&w=800&q=80" alt="Belted modern shirt dress" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500" loading="lazy">
+            </div>
+            <div class="pt-4">
+              <p class="text-xs tracking-widest uppercase text-gray-500">Dresses</p>
+              <div class="mt-1 flex items-start justify-between gap-4">
+                <h2 class="text-base font-medium">Belted Shirt Dress</h2>
+                <p class="text-sm font-semibold whitespace-nowrap">€165</p>
+              </div>
+              <p class="mt-1 text-sm text-gray-500">Olive</p>
+            </div>
+          </a>
+        </article>
+
+        <article class="group">
+          <a href="#" class="block" aria-label="View Fine-Knit Polo">
+            <div class="product-image overflow-hidden rounded-xl bg-gray-200">
+              <img src="https://images.unsplash.com/photo-1576566588028-4147f3842f27?auto=format&fit=crop&w=800&q=80" alt="Fine-knit polo shirt" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500" loading="lazy">
+            </div>
+            <div class="pt-4">
+              <p class="text-xs tracking-widest uppercase text-gray-500">Knitwear</p>
+              <div class="mt-1 flex items-start justify-between gap-4">
+                <h2 class="text-base font-medium">Fine-Knit Polo</h2>
+                <p class="text-sm font-semibold whitespace-nowrap">€120</p>
+              </div>
+              <p class="mt-1 text-sm text-gray-500">Cream</p>
+            </div>
+          </a>
+        </article>
+
+        <article class="group">
+          <a href="#" class="block" aria-label="View Cashmere Crewneck">
+            <div class="product-image overflow-hidden rounded-xl bg-gray-200">
+              <img src="https://images.unsplash.com/photo-1618354691373-d851c5c3a990?auto=format&fit=crop&w=800&q=80" alt="Soft cashmere crewneck sweater" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500" loading="lazy">
+            </div>
+            <div class="pt-4">
+              <p class="text-xs tracking-widest uppercase text-gray-500">Knitwear</p>
+              <div class="mt-1 flex items-start justify-between gap-4">
+                <h2 class="text-base font-medium">Cashmere Crewneck</h2>
+                <p class="text-sm font-semibold whitespace-nowrap">€240</p>
+              </div>
+              <p class="mt-1 text-sm text-gray-500">Heather Grey</p>
+            </div>
+          </a>
+        </article>
+
+        <article class="group">
+          <a href="#" class="block" aria-label="View Minimal Leather Sneakers">
+            <div class="product-image overflow-hidden rounded-xl bg-gray-200">
+              <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?auto=format&fit=crop&w=800&q=80" alt="Minimal white leather sneakers" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500" loading="lazy">
+            </div>
+            <div class="pt-4">
+              <p class="text-xs tracking-widest uppercase text-gray-500">Shoes</p>
+              <div class="mt-1 flex items-start justify-between gap-4">
+                <h2 class="text-base font-medium">Minimal Leather Sneakers</h2>
+                <p class="text-sm font-semibold whitespace-nowrap">€180</p>
+              </div>
+              <p class="mt-1 text-sm text-gray-500">White</p>
+            </div>
+          </a>
+        </article>
+
+        <article class="group">
+          <a href="#" class="block" aria-label="View Suede City Loafers">
+            <div class="product-image overflow-hidden rounded-xl bg-gray-200">
+              <img src="https://images.unsplash.com/photo-1614252235316-8c857d38b5f4?auto=format&fit=crop&w=800&q=80" alt="Brown suede city loafers" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500" loading="lazy">
+            </div>
+            <div class="pt-4">
+              <p class="text-xs tracking-widest uppercase text-gray-500">Shoes</p>
+              <div class="mt-1 flex items-start justify-between gap-4">
+                <h2 class="text-base font-medium">Suede City Loafers</h2>
+                <p class="text-sm font-semibold whitespace-nowrap">€210</p>
+              </div>
+              <p class="mt-1 text-sm text-gray-500">Cognac</p>
+            </div>
+          </a>
+        </article>
+
+        <article class="group">
+          <a href="#" class="block" aria-label="View Sculpted Heel Pumps">
+            <div class="product-image overflow-hidden rounded-xl bg-gray-200">
+              <img src="https://images.unsplash.com/photo-1543163521-1bf539c55dd2?auto=format&fit=crop&w=800&q=80" alt="Black sculpted heel pumps" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500" loading="lazy">
+            </div>
+            <div class="pt-4">
+              <p class="text-xs tracking-widest uppercase text-gray-500">Shoes</p>
+              <div class="mt-1 flex items-start justify-between gap-4">
+                <h2 class="text-base font-medium">Sculpted Heel Pumps</h2>
+                <p class="text-sm font-semibold whitespace-nowrap">€230</p>
+              </div>
+              <p class="mt-1 text-sm text-gray-500">Black</p>
+            </div>
+          </a>
+        </article>
+
+        <article class="group">
+          <a href="#" class="block" aria-label="View Atelier Leather Tote">
+            <div class="product-image overflow-hidden rounded-xl bg-gray-200">
+              <img src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=800&q=80" alt="Structured leather tote bag" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500" loading="lazy">
+            </div>
+            <div class="pt-4">
+              <p class="text-xs tracking-widest uppercase text-gray-500">Accessories</p>
+              <div class="mt-1 flex items-start justify-between gap-4">
+                <h2 class="text-base font-medium">Atelier Leather Tote</h2>
+                <p class="text-sm font-semibold whitespace-nowrap">€290</p>
+              </div>
+              <p class="mt-1 text-sm text-gray-500">Tan</p>
+            </div>
+          </a>
+        </article>
+
+        <article class="group">
+          <a href="#" class="block" aria-label="View Mini Crossbody Bag">
+            <div class="product-image overflow-hidden rounded-xl bg-gray-200">
+              <img src="https://images.unsplash.com/photo-1591561954557-26941169b49e?auto=format&fit=crop&w=800&q=80" alt="Compact black crossbody bag" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500" loading="lazy">
+            </div>
+            <div class="pt-4">
+              <p class="text-xs tracking-widest uppercase text-gray-500">Accessories</p>
+              <div class="mt-1 flex items-start justify-between gap-4">
+                <h2 class="text-base font-medium">Mini Crossbody Bag</h2>
+                <p class="text-sm font-semibold whitespace-nowrap">€195</p>
+              </div>
+              <p class="mt-1 text-sm text-gray-500">Black</p>
+            </div>
+          </a>
+        </article>
+
+        <article class="group">
+          <a href="#" class="block" aria-label="View Silk Carré Scarf">
+            <div class="product-image overflow-hidden rounded-xl bg-gray-200">
+              <img src="https://images.unsplash.com/photo-1601924994987-69e26d50dc26?auto=format&fit=crop&w=800&q=80" alt="Patterned silk square scarf" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500" loading="lazy">
+            </div>
+            <div class="pt-4">
+              <p class="text-xs tracking-widest uppercase text-gray-500">Accessories</p>
+              <div class="mt-1 flex items-start justify-between gap-4">
+                <h2 class="text-base font-medium">Silk Carré Scarf</h2>
+                <p class="text-sm font-semibold whitespace-nowrap">€95</p>
+              </div>
+              <p class="mt-1 text-sm text-gray-500">Multicolor</p>
+            </div>
+          </a>
+        </article>
+
+        <article class="group">
+          <a href="#" class="block" aria-label="View Leather Waist Belt">
+            <div class="product-image overflow-hidden rounded-xl bg-gray-200">
+              <img src="https://images.unsplash.com/photo-1624222247344-550fb60583dc?auto=format&fit=crop&w=800&q=80" alt="Slim brown leather waist belt" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500" loading="lazy">
+            </div>
+            <div class="pt-4">
+              <p class="text-xs tracking-widest uppercase text-gray-500">Accessories</p>
+              <div class="mt-1 flex items-start justify-between gap-4">
+                <h2 class="text-base font-medium">Leather Waist Belt</h2>
+                <p class="text-sm font-semibold whitespace-nowrap">€80</p>
+              </div>
+              <p class="mt-1 text-sm text-gray-500">Chestnut</p>
+            </div>
+          </a>
+        </article>
+
+        <article class="group">
+          <a href="#" class="block" aria-label="View Brushed Wool Coat">
+            <div class="product-image overflow-hidden rounded-xl bg-gray-200">
+              <img src="https://images.unsplash.com/photo-1539533018447-63fcce2678e3?auto=format&fit=crop&w=800&q=80" alt="Long brushed wool coat" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500" loading="lazy">
+            </div>
+            <div class="pt-4">
+              <p class="text-xs tracking-widest uppercase text-gray-500">Outerwear</p>
+              <div class="mt-1 flex items-start justify-between gap-4">
+                <h2 class="text-base font-medium">Brushed Wool Coat</h2>
+                <p class="text-sm font-semibold whitespace-nowrap">€340</p>
+              </div>
+              <p class="mt-1 text-sm text-gray-500">Camel</p>
+            </div>
+          </a>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-gray-900 text-gray-200 mt-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+        <div>
+          <p class="text-xl font-semibold tracking-widest uppercase text-white">Maison Étoile</p>
+          <p class="mt-4 text-sm leading-6 text-gray-400 max-w-sm">A visual storefront prototype for a contemporary French fashion label.</p>
+        </div>
+
+        <nav aria-label="Footer navigation">
+          <h2 class="text-sm font-semibold uppercase tracking-wider text-white">Explore</h2>
+          <ul class="mt-4 space-y-3 text-sm text-gray-400">
+            <li><a href="#" class="hover:text-white">Home</a></li>
+            <li><a href="#catalog" class="hover:text-white">Catalog</a></li>
+            <li><a href="#" class="hover:text-white">Product view</a></li>
+            <li><a href="#" class="hover:text-white">Cart</a></li>
+            <li><a href="#" class="hover:text-white">Payment form</a></li>
+          </ul>
+        </nav>
+
+        <div>
+          <h2 class="text-sm font-semibold uppercase tracking-wider text-white">Customer care</h2>
+          <address class="mt-4 not-italic text-sm leading-7 text-gray-400">
+            24 Rue de la Mode<br>
+            75001 Paris, France<br>
+            <a href="mailto:bonjour@example.com" class="hover:text-white">bonjour@example.com</a>
+          </address>
+        </div>
+      </div>
+
+      <div class="mt-10 pt-6 border-t border-gray-800 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 text-xs text-gray-500">
+        <p>&copy; 2026 Maison Étoile. Prototype only.</p>
+        <p>Designed with semantic HTML and Tailwind CSS.</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
